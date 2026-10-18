@@ -1,0 +1,60 @@
+{
+  "name": "@sectui/subdomain-finder",
+  "version": "0.1.0",
+  "description": "Passive subdomain enumeration from public sources: a TypeScript library and a CLI",
+  "license": "MIT",
+  "author": "Hadi",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sectui/subdomain-finder.git"
+  },
+  "homepage": "https://github.com/sectui/subdomain-finder#readme",
+  "bugs": {
+    "url": "https://github.com/sectui/subdomain-finder/issues"
+  },
+  "keywords": [
+    "subdomain",
+    "recon",
+    "osint",
+    "security",
+    "cli"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "subdomain-finder": "./dist/cli.js"
+  },
+  "engines": {
+    "node": ">=26"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "bundle": "node scripts/bundle.ts",
+    "test": "node --conditions=source --test 'src/**/*.test.ts'",
+    "typecheck": "tsc",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "esbuild": "^0.28.2",
+    "prettier": "3.8.3",
+    "typescript": "^7"
+  },
+  "files": [
+    "dist",
+    "!dist/subdomain-finder.mjs",
+    "src",
+    "!src/**/*.test.ts"
+  ],
+  "dependencies": {
+    "yaml": "^2.9.1"
+  }
+}
